@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="assests/fonts/Vazirmatn/Vazirmatn-Variable-font-face.css">
+    <link rel="stylesheet" href="assests/fonts/Vazirmatn/Vazirmatn-font-face.css">
+    <title>مشاوره برنامه‌نویسی - Edu Code</title>
+    <link rel="stylesheet" href="assests/css/consultation-style.css">
+</head>
+<body>
+    <header class="consultation-header">
+        <div class="nav-container">
+            <div class="logo">
+                <h1>Edu Code</h1>
+            </div>
+            <nav class="nav-links">
+                <a href="index.html">خانه</a>
+                <a href="signin.html">ورود</a>
+                <a href="signup.html">ثبت‌نام</a>
+                <a href="consultation.html" class="active">مشاوره</a>
+            </nav>
+        </div>
+    </header>
+    <div class="consultation-container">
+        <div class="consultation-hero">
+            <h2>مشاوره تخصصی برنامه‌نویسی</h2>
+            <p>مسیر یادگیری خود را با راهنمایی متخصصان ما پیدا کنید و به یک برنامه‌نویس حرفه‌ای تبدیل شوید</p>
+        </div>
+        <div class="consultation-content">
+            <div class="consultation-form-container">
+                <form id="consultationForm">
+                    <div class="form-group">
+                        <label for="fullName">نام کامل</label>
+                        <input type="text" id="fullName" placeholder="نام و نام خانوادگی خود را وارد کنید" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="email">ایمیل</label>
+                        <input type="email" id="email" placeholder="example@gmail.com" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="phone">شماره تماس</label>
+                        <input type="tel" id="phone" placeholder="09xxxxxxxxx" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="experience">سطح تجربه فعلی</label>
+                        <select id="experience" required>
+                            <option value="">انتخاب کنید</option>
+                            <option value="beginner">تازه کار (کاملاً مبتدی)</option>
+                            <option value="intermediate">متوسط (آشنایی مقدماتی)</option>
+                            <option value="advanced">پیشرفته (تجربه کاری دارم)</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label>زمینه‌های مورد علاقه</label>
+                        <div class="skills-checkbox">
+                            <div class="skill-item">
+                                <input type="checkbox" id="webDev" value="web">
+                                <label for="webDev">توسعه وب</label>
+                            </div>
+                            <div class="skill-item">
+                                <input type="checkbox" id="mobileDev" value="mobile">
+                                <label for="mobileDev">توسعه موبایل</label>
+                            </div>
+                            <div class="skill-item">
+                                <input type="checkbox" id="ai" value="ai">
+                                <label for="ai">هوش مصنوعی</label>
+                            </div>
+                            <div class="skill-item">
+                                <input type="checkbox" id="gameDev" value="game">
+                                <label for="gameDev">توسعه بازی</label>
+                            </div>
+                            <div class="skill-item">
+                                <input type="checkbox" id="dataScience" value="data">
+                                <label for="dataScience">علم داده</label>
+                            </div>
+                            <div class="skill-item">
+                                <input type="checkbox" id="cybersecurity" value="security">
+                                <label for="cybersecurity">امنیت سایبری</label>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="goal">هدف اصلی شما</label>
+                        <select id="goal" required>
+                            <option value="">انتخاب کنید</option>
+                            <option value="job">اشتغال در شرکت</option>
+                            <option value="freelance">فریلنسینگ</option>
+                            <option value="startup">استارتاپ شخصی</option>
+                            <option value="hobby">علاقه شخصی</option>
+                            <option value="academic">تحصیل آکادمیک</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="time">زمان هفتگی قابل اختصاص</label>
+                        <select id="time" required>
+                            <option value="">انتخاب کنید</option>
+                            <option value="5">کمتر از ۵ ساعت</option>
+                            <option value="10">۵-۱۰ ساعت</option>
+                            <option value="15">۱۰-۱۵ ساعت</option>
+                            <option value="20">بیش از ۱۵ ساعت</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="message">سوالات یا نکات خاص</label>
+                        <textarea id="message" placeholder="سوالات، چالش‌ها یا هر نکته خاصی که می‌خواهید مطرح کنید..."></textarea>
+                    </div>
+                    <button type="submit" class="consultation-btn" id="submitBtn">
+                        درخواست مشاوره رایگان
+                    </button>
+                </form>
+                <div id="formMessages"></div>
+            </div>
+            <div class="consultation-info">
+                <div class="info-item">
+                    <h3>🎯 چرا مشاوره برنامه‌نویسی؟</h3>
+                    <p>با توجه به گستردگی زمینه‌های برنامه‌نویسی، انتخاب مسیر درست می‌تواند چالش برانگیز باشد. مشاوران ما به شما کمک می‌کنند بهترین مسیر را بر اساس علایق، استعداد و اهداف شما پیدا کنید.</p>
+                </div>
+                <div class="info-item">
+                    <h3>🚀 زمینه‌های تخصصی ما</h3>
+                    <div class="tech-stack">
+                        <span class="tech-item">Frontend</span>
+                        <span class="tech-item">Backend</span>
+                        <span class="tech-item">Mobile</span>
+                        <span class="tech-item">AI/ML</span>
+                        <span class="tech-item">DevOps</span>
+                        <span class="tech-item">Database</span>
+                        <span class="tech-item">Cloud</span>
+                        <span class="tech-item">Security</span>
+                    </div>
+                </div>
+                <div class="info-item">
+                    <h3>📅 فرآیند مشاوره</h3>
+                    <p>1. پر کردن فرم درخواست مشاوره<br>
+                    2. تماس تلفنی برای تعیین زمان جلسه<br>
+                    3. جلسه مشاوره آنلاین (60 دقیقه)<br>
+                    4. ارائه نقشه راه شخصی‌سازی شده</p>
+                </div>
+                <div class="info-item">
+                    <h3>💡 مزایای مشاوره با ما</h3>
+                    <p>• تجربه عملی در پروژه‌های واقعی<br>
+                    • آشنایی با بازار کار ایران و جهان<br>
+                    • پشتیبانی مستمر پس از مشاوره<br>
+                    • به‌روزترین تکنولوژی‌ها و متدولوژی‌ها</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="assests/vendor/jquery-3.7.1/jquery.min.js"></script>
+    <script src="assests/js/script.js"></script>
+</body>
+</html>
