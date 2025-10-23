@@ -212,29 +212,6 @@ header {
 #hero-static .row .image:hover img {
     transform: rotate(0deg) scale(1.1);
 }
-
-
-/* 
-***** About *****
-*/
-
-#about .float-about {
-    float: left;
-    width: 50%;
-}
-
-#about .float-about h2 {
-    font-size: 2.4rem;
-    padding: 1rem;
-    font-weight: 900;
-    color: var(--clr-default);
-}
-
-#about .float-about p {
-    padding: 1rem;
-    color: var(--clr-text);
-}
-
 /* 
 ***** Responsive *****
 */
@@ -272,14 +249,5 @@ header {
 
     #hero-static .row .image img {
         transform: rotate(0deg);
-    }
-
-    #about .float-about {
-        width: 100%;
-    }
-
-    #courses .row {
-        flex-direction: column;
-        gap: 3rem;
     }
 }

@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>تماس با ما</title>
+    <link rel="stylesheet" href="assests/css/contact us.css">
+</head>
+<body>
+    <header>
+        <div class="container">
+            <h1>تماس با ما</h1>
+            <p>ما اینجا هستیم تا به سوالات شما پاسخ دهیم</p>
+        </div>
+    </header>
+    
+    <section class="contact-section">
+        <div class="container">
+            <div class="contact-wrapper">
+                <div class="contact-info">
+                    <h2>اطلاعات تماس</h2>
+                    
+                    <div class="info-item">
+                        <i>📍</i>
+                        <div class="info-text">
+                            <h3>آدرس</h3>
+                            <p>تهران، خیابان ولیعصر، کوچه فلان، پلاک ۱۲۳</p>
+                        </div>
+                    </div>
+                    
+                    <div class="info-item">
+                        <i>📞</i>
+                        <div class="info-text">
+                            <h3>تلفن</h3>
+                            <p>۰۲۱-۱۲۳۴۵۶۷۸</p>
+                        </div>
+                    </div>
+                    
+                    <div class="info-item">
+                        <i>✉️</i>
+                        <div class="info-text">
+                            <h3>ایمیل</h3>
+                            <p>info@example.com</p>
+                        </div>
+                    </div>
+                    
+                    <div class="info-item">
+                        <i>🕒</i>
+                        <div class="info-text">
+                            <h3>ساعات کاری</h3>
+                            <p>شنبه تا چهارشنبه: ۸ صبح تا ۵ عصر</p>
+                            <p>پنجشنبه: ۸ صبح تا ۱ ظهر</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="contact-form">
+                    <h2>پیام خود را ارسال کنید</h2>
+                    
+                    <form id="contactForm">
+                        <div class="form-group">
+                            <label for="name">نام کامل</label>
+                            <input type="text" id="name" name="name" class="form-control" placeholder="نام و نام خانوادگی خود را وارد کنید">
+                            <div class="error" id="nameError">لطفاً نام خود را وارد کنید</div>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="email">ایمیل</label>
+                            <input type="email" id="email" name="email" class="form-control" placeholder="ایمیل خود را وارد کنید">
+                            <div class="error" id="emailError">لطفاً یک ایمیل معتبر وارد کنید</div>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="subject">موضوع</label>
+                            <input type="text" id="subject" name="subject" class="form-control" placeholder="موضوع پیام خود را وارد کنید">
+                            <div class="error" id="subjectError">لطفاً موضوع پیام را وارد کنید</div>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="message">پیام</label>
+                            <textarea id="message" name="message" class="form-control" placeholder="پیام خود را اینجا بنویسید"></textarea>
+                            <div class="error" id="messageError">لطفاً پیام خود را وارد کنید</div>
+                        </div>
+                        
+                        <button type="submit" class="btn">ارسال پیام</button>
+                        
+                        <div class="success-message" id="successMessage">
+                            پیام شما با موفقیت ارسال شد. به زودی با شما تماس خواهیم گرفت.
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <footer>
+        <div class="container">
+            <p>© 2023 تمامی حقوق محفوظ است.</p>
+        </div>
+    </footer>
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="assests/js/script.js"></script>
+</body>
+</html>
