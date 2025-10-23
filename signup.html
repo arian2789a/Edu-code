@@ -3,57 +3,53 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="assests/fonts/Vazirmatn/Vazirmatn-Variable-font-face.css">
+    <link rel="stylesheet" href="assests/fonts/Vazirmatn/Vazirmatn-font-face.css">
     <title>ثبت‌نام در Edu Code</title>
     <link rel="stylesheet" href="assests/css/signup.css">
 </head>
 <body>
-    <div class="login-container">
-        <div class="login-box">
+    <div class="register-container">
+        <div class="register-box">
             <div class="logo">
                 <h1>Edu Code</h1>
                 <p>پیوستن به جامعه برنامه‌نویسان</p>
             </div>
-            
             <form class="login-form" id="registerForm">
                 <div class="input-group">
-                    <input type="text" placeholder="نام کامل" required id="fullname">
+                    <input type="text" placeholder="نام کامل" required id="fullname" autocomplete="name">
                 </div>
-                
                 <div class="input-group">
-                    <input type="email" placeholder="ایمیل" required id="email">
+                    <input type="email" placeholder="ایمیل" required id="email" autocomplete="email">
                 </div>
-                
                 <div class="input-group">
-                    <input type="password" placeholder="رمز عبور" required id="password" minlength="6">
+                    <input type="password" placeholder="رمز عبور" required id="password" minlength="6" autocomplete="new-password">
                 </div>
-                
                 <div class="input-group">
-                    <input type="password" placeholder="تکرار رمز عبور" required id="confirmPassword">
+                    <input type="password" placeholder="تکرار رمز عبور" required id="confirmPassword" autocomplete="new-password">
                 </div>
-
                 <div class="input-group">
-                    <select id="programmingLevel" class="level-select">
+                    <select id="programmingLevel" class="level-select" required>
                         <option value="">سطح برنامه‌نویسی شما</option>
                         <option value="beginner">تازه کار</option>
                         <option value="intermediate">متوسط</option>
                         <option value="advanced">پیشرفته</option>
                     </select>
                 </div>
-
                 <div class="checkbox-group">
                     <input type="checkbox" id="terms" required>
                     <label for="terms">قوانین و شرایط را می‌پذیرم</label>
                 </div>
-                
-                <button type="submit" class="login-btn">ثبت‌نام</button>
-                
+                <button type="submit" class="register-btn">ثبت‌نام</button>
                 <div class="links">
                     <a href="signin.html">حساب کاربری دارید؟ ورود</a>
                     <a href="index.html">خانه</a>
                 </div>
             </form>
+            <div id="registerMessages"></div>
         </div>
     </div>
+    <script src="assests/vendor/jquery-3.7.1/jquery.min.js"></script>
     <script src="assests/js/script.js"></script>
 </body>
 </html>

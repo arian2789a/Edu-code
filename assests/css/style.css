@@ -10,8 +10,8 @@
 
 :root {
     --clr-bg: #f3f4f6;
-    --clr-default: #1990e5;
-    --clr-primary: #00aeff;
+    --clr-default: #764ba2;
+    --clr-primary: #764ba27e;
     --clr-secondary: #1990e5;
     --clr-text: #444;
     --transition: all 128ms linear;
@@ -103,7 +103,7 @@ section {
 ***** Header *****
 */
 header {
-    background-color: #00fff7eb;
+    background: linear-gradient(135deg, #667eea7e 0%, #764ba27e 100%);
     border-radius: 60px 60px 60px 60px;
     margin-top: 10px;
     position: fixed;

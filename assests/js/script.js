@@ -98,6 +98,10 @@ $(document).ready(function() {
 });
 // log in
 $(document).ready(function() {
+    checkViewport();
+    $(window).on('resize', function() {
+        checkViewport();
+    });
     $('#loginForm').on('submit', function(e) {
         e.preventDefault();
         const email = $('#loginEmail').val();
@@ -118,7 +122,31 @@ $(document).ready(function() {
             $(this).parent().removeClass('focused');
         }
     });
+    if (isMobileDevice()) {
+        $('input').attr('autocapitalize', 'none');
+        $('input[type="email"]').attr('inputmode', 'email');
+        $('input[type="password"]').attr('autocomplete', 'current-password');
+    }
 });
+function checkViewport() {
+    const width = $(window).width();
+    const height = $(window).height();
+    if (width <= 480) {
+        $('body').addClass('mobile-view').removeClass('tablet-view desktop-view');
+    } else if (width <= 768) {
+        $('body').addClass('tablet-view').removeClass('mobile-view desktop-view');
+    } else {
+        $('body').addClass('desktop-view').removeClass('mobile-view tablet-view');
+    }
+    if (height < 500 && width > height) {
+        $('body').addClass('landscape-mode');
+    } else {
+        $('body').removeClass('landscape-mode');
+    }
+}
+function isMobileDevice() {
+    return /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
+}
 function validateLoginForm(email, password) {
     let isValid = true;
     $('.input-error').removeClass('input-error');
@@ -137,33 +165,26 @@ function validateLoginForm(email, password) {
     return isValid;
 }
 function loginUser(email, password) {
-    $('#loginMessages').html('<div class="loading">در حال ورود...</div>');
-    $.ajax({
-        url: 'login.php',
-        type: 'POST',
-        data: {
-            email: email,
-            password: password
-        },
-        success: function(response) {
-            if (response.success) {
-                $('#loginMessages').html('<div class="success-message">ورود موفق! در حال انتقال...</div>');
-                setTimeout(() => {
-                    window.location.href = 'dashboard.html';
-                }, 2000);
-            } else {
-                $('#loginMessages').html('<div class="error-message">' + response.message + '</div>');
-            }
-        },
-        error: function() {
-            $('#loginMessages').html('<div class="error-message">خطا در ارتباط با سرور</div>');
+    $('#loginMessages').html('<div class="loading">🔄 در حال ورود...</div>');
+    const submitBtn = $('.login-btn');
+    submitBtn.prop('disabled', true).text('در حال ورود...');
+    setTimeout(() => {
+        if (email === "test@example.com" && password === "123456") {
+            $('#loginMessages').html('<div class="success-message">✅ ورود موفق! در حال انتقال...</div>');
+            setTimeout(() => {
+                window.location.href = 'dashboard.html';
+            }, 2000);
+        } else {
+            $('#loginMessages').html('<div class="error-message">❌ ایمیل یا رمز عبور اشتباه است</div>');
+            submitBtn.prop('disabled', false).text('ورود');
         }
-    });
+    }, 1500);
 }
 function showForgotPasswordModal() {
-    const modal = `
+    const isMobile = $(window).width() <= 480;
+    const modalContent = `
         <div class="modal-overlay">
-            <div class="modal">
+            <div class="modal" style="${isMobile ? 'max-width: 95%;' : ''}">
                 <h3>بازیابی رمز عبور</h3>
                 <input type="email" placeholder="ایمیل خود را وارد کنید" id="recoveryEmail">
                 <button id="sendRecovery">ارسال لینک بازیابی</button>
@@ -171,22 +192,41 @@ function showForgotPasswordModal() {
             </div>
         </div>
     `;
-    $('body').append(modal);
+    $('body').append(modalContent);
     $('.close-modal').on('click', function() {
         $('.modal-overlay').remove();
     });
     $('#sendRecovery').on('click', function() {
         const email = $('#recoveryEmail').val();
-        if (email) {
+        const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+        
+        if (email && emailRegex.test(email)) {
             alert('لینک بازیابی به ایمیل ' + email + ' ارسال شد');
+            $('.modal-overlay').remove();
+        } else {
+            alert('لطفا یک ایمیل معتبر وارد کنید');
+        }
+    });
+    $('.modal-overlay').on('click', function(e) {
+        if (e.target === this) {
+            $(this).remove();
+        }
+    });
+    $(document).on('keyup', function(e) {
+        if (e.key === 'Escape') {
             $('.modal-overlay').remove();
         }
     });
 }
 // sign up
 $(document).ready(function() {
+    checkViewport();
+    $(window).on('resize', function() {
+        checkViewport();
+    });
     $('#registerForm').on('submit', function(e) {
         e.preventDefault();
+        
         const userData = {
             fullname: $('#fullname').val(),
             email: $('#email').val(),
@@ -214,92 +254,132 @@ $(document).ready(function() {
     $('#password').on('keyup', function() {
         showPasswordStrength($(this).val());
     });
+    if (isMobileDevice()) {
+        $('input').attr('autocapitalize', 'none');
+        $('input[type="email"]').attr('inputmode', 'email');
+        $('input[type="password"]').attr('autocomplete', 'new-password');
+        $('input[type="text"]').attr('autocomplete', 'name');
+    }
+    $('input, select').on('focus', function() {
+        if (isMobileDevice()) {
+            setTimeout(() => {
+                this.scrollIntoView({ behavior: 'smooth', block: 'center' });
+            }, 300);
+        }
+    });
 });
+function checkViewport() {
+    const width = $(window).width();
+    const height = $(window).height();
+    if (width <= 480) {
+        $('body').addClass('mobile-view').removeClass('tablet-view desktop-view');
+    } else if (width <= 768) {
+        $('body').addClass('tablet-view').removeClass('mobile-view desktop-view');
+    } else {
+        $('body').addClass('desktop-view').removeClass('mobile-view tablet-view');
+    }
+    if (height < 500 && width > height) {
+        $('body').addClass('landscape-mode');
+    } else {
+        $('body').removeClass('landscape-mode');
+    }
+}
+function isMobileDevice() {
+    return /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
+}
 function validateRegisterForm(userData) {
     let isValid = true;
     $('.input-error').removeClass('input-error');
     $('.error-message').remove();
     if (userData.fullname.length < 3) {
-        $('#fullname').addClass('input-error')
-            .after('<div class="error-message">نام باید حداقل ۳ حرف باشد</div>');
+        showError('fullname', 'نام باید حداقل ۳ حرف باشد');
         isValid = false;
     }
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
     if (!emailRegex.test(userData.email)) {
-        $('#email').addClass('input-error')
-            .after('<div class="error-message">ایمیل معتبر نیست</div>');
+        showError('email', 'ایمیل معتبر نیست');
         isValid = false;
     }
     if (userData.password.length < 6) {
-        $('#password').addClass('input-error')
-            .after('<div class="error-message">رمز عبور باید حداقل ۶ حرف باشد</div>');
+        showError('password', 'رمز عبور باید حداقل ۶ حرف باشد');
         isValid = false;
     }
     if (userData.password !== userData.confirmPassword) {
-        $('#confirmPassword').addClass('input-error')
-            .after('<div class="error-message">رمزهای عبور مطابقت ندارند</div>');
+        showError('confirmPassword', 'رمزهای عبور مطابقت ندارند');
         isValid = false;
     }
     if (!userData.programmingLevel) {
-        $('#programmingLevel').addClass('input-error')
-            .after('<div class="error-message">لطفا سطح خود را انتخاب کنید</div>');
+        showError('programmingLevel', 'لطفا سطح خود را انتخاب کنید');
         isValid = false;
     }
     if (!userData.terms) {
         $('#terms').addClass('input-error');
-        alert('لطفا قوانین و شرایط را بپذیرید');
+        $('#registerMessages').html('<div class="error-message">لطفا قوانین و شرایط را بپذیرید</div>');
         isValid = false;
+    } else {
+        $('#terms').removeClass('input-error');
     }
     return isValid;
+}
+function showError(fieldId, message) {
+    $('#' + fieldId).addClass('input-error');
+    $('#' + fieldId).after('<div class="error-message">' + message + '</div>');
 }
 function validatePasswordMatch() {
     const password = $('#password').val();
     const confirmPassword = $('#confirmPassword').val();
+    $('.password-match-message').remove();
     if (confirmPassword && password !== confirmPassword) {
         $('#confirmPassword').addClass('input-error');
-    } else {
+        $('#confirmPassword').after('<div class="error-message password-match-message">❌ رمزهای عبور مطابقت ندارند</div>');
+    } else if (confirmPassword && password === confirmPassword) {
         $('#confirmPassword').removeClass('input-error');
+        $('#confirmPassword').after('<div class="success-message password-match-message">✅ رمزهای عبور مطابقت دارند</div>');
     }
 }
 function showPasswordStrength(password) {
     $('.password-strength').remove();
     let strength = 'ضعیف';
     let strengthClass = 'weak';
+    let emoji = '🔴';
     if (password.length >= 8) {
         strength = 'متوسط';
         strengthClass = 'medium';
+        emoji = '🟡';
     }
     if (password.length >= 10 && /[A-Z]/.test(password) && /[0-9]/.test(password)) {
         strength = 'قوی';
         strengthClass = 'strong';
+        emoji = '🟢';
     }
     if (password) {
-        $('#password').after(`<div class="password-strength ${strengthClass}">قدرت رمز: ${strength}</div>`);
+        $('#password').after(`<div class="password-strength ${strengthClass}">${emoji} قدرت رمز: ${strength}</div>`);
     }
 }
 function registerUser(userData) {
-    $('#registerMessages').html('<div class="loading">در حال ثبت‌نام...</div>');
-    $.ajax({
-        url: 'register.php',
-        type: 'POST',
-        data: {
-            fullname: userData.fullname,
-            email: userData.email,
-            password: userData.password,
-            programming_level: userData.programmingLevel
-        },
-        success: function(response) {
-            if (response.success) {
-                $('#registerMessages').html('<div class="success-message">ثبت‌نام موفق! ایمیل تایید ارسال شد</div>');
-                setTimeout(() => {
-                    window.location.href = 'login.html?registered=true';
-                }, 3000);
-            } else {
-                $('#registerMessages').html('<div class="error-message">' + response.message + '</div>');
-            }
-        },
-        error: function() {
-            $('#registerMessages').html('<div class="error-message">خطا در ارتباط با سرور</div>');
-        }
-    });
+    $('#registerMessages').html('<div class="loading">🔄 در حال ثبت‌نام...</div>');
+    const submitBtn = $('.register-btn');
+    submitBtn.prop('disabled', true).text('در حال ثبت‌نام...');
+    setTimeout(() => {
+        $('#registerMessages').html(`
+            <div class="success-message">
+                <strong>✅ ثبت‌نام موفق!</strong><br>
+                به صفحه ورود منتقل می‌شوید...
+            </div>
+        `);
+        setTimeout(() => {
+            window.location.href = 'login.html?registered=true';
+        }, 3000);
+    }, 2000);
 }
+$(document).on('visibilitychange', function() {
+    if (!document.hidden) {
+        const submitBtn = $('.register-btn');
+        if (submitBtn.prop('disabled')) {
+            setTimeout(() => {
+                submitBtn.prop('disabled', false).text('ثبت‌نام');
+                $('#registerMessages').html('<div class="error-message">اتصال خود را بررسی کنید</div>');
+            }, 1000);
+        }
+    }
+});

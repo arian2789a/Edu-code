@@ -1,9 +1,9 @@
 :root {
-    --primary-color: #3498db;
-    --secondary-color: #2c3e50;
+    --primary-color: #764ba2;
+    --secondary-color: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
     --accent-color: #e74c3c;
     --light-color: #ecf0f1;
-    --dark-color: #34495e;
+    --dark-color: #764ba2;
     --success-color: #2ecc71;
     --error-color: #e74c3c;
 }
@@ -16,6 +16,7 @@
 }
 
 body {
+    font-family: 'Vazirmatn', Vazirmatn !important;
     background-color: #f5f7fa;
     color: var(--dark-color);
     line-height: 1.6;
@@ -28,7 +29,7 @@ body {
 }
 
 header {
-    background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
     color: white;
     padding: 2rem 0;
     text-align: center;
@@ -199,7 +200,7 @@ textarea.form-control {
 }
 
 footer {
-    background: var(--secondary-color);
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
     color: white;
     text-align: center;
     padding: 2rem 0;
