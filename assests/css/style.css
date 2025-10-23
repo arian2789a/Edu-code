@@ -1,0 +1,285 @@
+/* 
+***** Global *****
+*/
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --clr-bg: #f3f4f6;
+    --clr-default: #1990e5;
+    --clr-primary: #00aeff;
+    --clr-secondary: #1990e5;
+    --clr-text: #444;
+    --transition: all 128ms linear;
+}
+
+body {
+    background: var(--clr-bg);
+    overflow-x: hidden;
+    font-family: 'Vazirmatn', Vazirmatn !important;
+}
+
+a {
+    text-decoration: none;
+}
+
+li {
+    list-style: none;
+}
+
+img {
+    width: 100%;
+    height: auto;
+}
+
+section {
+    padding: 4rem 0 !important;
+}
+
+.container {
+    max-width: 1200px;
+    padding: 1rem !important;
+    margin: 0 auto;
+}
+
+.clearfix::before,
+.clearfix::after {
+    content: "";
+    display: table;
+    clear: both;
+}
+
+.d-flex {
+    display: flex;
+}
+
+.justify-content-center {
+    justify-content: center;
+}
+
+.justify-content-between {
+    justify-content: space-between;
+}
+
+.align-items-center {
+    align-items: center;
+}
+
+
+.gap-1 {
+    gap: 0.375rem;
+}
+
+.gap-2 {
+    gap: 0.75rem;
+}
+
+.gap-3 {
+    gap: 1.5rem;
+}
+
+.p-1 {
+    padding: 0.375rem;
+}
+
+.p-2 {
+    padding: 0.75rem;
+}
+
+.p-3 {
+    padding: 1.5rem;
+}
+
+
+.btn {
+    all: unset;
+}
+
+/* 
+***** Header *****
+*/
+header {
+    background-color: #00fff7eb;
+    border-radius: 60px 60px 60px 60px;
+    margin-top: 10px;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    transition: top 0.3s;
+    z-index: 1000;
+}
+
+#header .logo a img {
+    width: 90px !important;
+    filter: drop-shadow(0px 0px 1rem rgba(0, 0, 0, 0.3));
+}
+
+#header nav ul li {
+    padding: 0.25rem 0.5rem;
+}
+
+#header nav .btn.btn-nav {
+    font-size: 3rem;
+    color: var(--clr-default);
+    display: none;
+}
+
+#header nav ul li a:not(#header .btn.btn-sign-in-up) {
+    font-size: 1rem;
+    font-weight: 500;
+    padding: 0.5rem;
+    color: var(--clr-text);
+
+}
+
+#header nav ul li:hover a:not(#header .btn.btn-sign-in-up) {
+    color: var(--clr-default);
+    border-bottom: 2px solid var(--clr-default);
+}
+
+#header .btn.btn-sign-in-up {
+    padding: 0.5rem 1rem;
+    font-size: 1rem;
+    font-weight: 500;
+    background: var(--clr-default);
+    border-radius: 0.375rem;
+    color: var(--clr-bg);
+}
+
+#header .btn.btn-sign-in-up:hover {
+    background: var(--clr-primary);
+}
+
+#header .btn.btn-sign-in-up:active {
+    background: var(--clr-secondary);
+}
+
+/* 
+***** Hero *****
+*/
+
+#hero-static .row {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 2.5rem;
+    margin-top: 100px;
+}
+
+#hero-static .row .content {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+
+#hero-static .row .content h1 {
+    width: 100%;
+    font-size: 3rem;
+    margin-bottom: 1.5rem;
+}
+
+#hero-static .row .content h1 span:nth-child(1) {
+    font-weight: 400;
+}
+
+#hero-static .row .content h1 span:nth-child(3) {
+    color: var(--clr-default);
+}
+
+#hero-static .row .content p {
+    color: var(--clr-text);
+    font-size: 1.1rem;
+}
+
+#hero-static .row .image {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 3rem;
+}
+
+#hero-static .row .image img {
+    border-radius: 0.375rem;
+    transform: rotate(-10deg);
+    outline: 3px solid var(--clr-default);
+    outline-offset: 3px;
+    transition: var(--transition);
+}
+
+#hero-static .row .image:hover img {
+    transform: rotate(0deg) scale(1.1);
+}
+
+
+/* 
+***** About *****
+*/
+
+#about .float-about {
+    float: left;
+    width: 50%;
+}
+
+#about .float-about h2 {
+    font-size: 2.4rem;
+    padding: 1rem;
+    font-weight: 900;
+    color: var(--clr-default);
+}
+
+#about .float-about p {
+    padding: 1rem;
+    color: var(--clr-text);
+}
+
+/* 
+***** Responsive *****
+*/
+
+@media only all and (max-width: 992px) {
+
+    #header .row {
+        flex-direction: row-reverse;
+        align-items: flex-start;
+    }
+
+    #hero-static .row .content {
+        text-align: center;
+    }
+
+    #hero-static .row .content h1 {
+        font-size: 2rem;
+    }
+
+    #header .row nav ul {
+        display: block;
+    }
+
+    #header .row nav ul li {
+        margin: 1rem 0;
+    }
+
+    #header nav .btn.btn-nav {
+        display: block;
+    }
+
+    #hero-static .row {
+        grid-template-columns: repeat(1, 1fr);
+    }
+
+    #hero-static .row .image img {
+        transform: rotate(0deg);
+    }
+
+    #about .float-about {
+        width: 100%;
+    }
+
+    #courses .row {
+        flex-direction: column;
+        gap: 3rem;
+    }
+}

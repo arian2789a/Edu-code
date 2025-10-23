@@ -1,0 +1,143 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.login-container {
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+    border-radius: 20px;
+    padding: 40px;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+    width: 90%;
+    max-width: 450px;
+}
+
+.login-box {
+    text-align: center;
+    color: white;
+}
+
+.logo h1 {
+    font-size: 2.5rem;
+    margin-bottom: 10px;
+    background: linear-gradient(45deg, #ffd89b, #19547b);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.logo p {
+    margin-bottom: 30px;
+    opacity: 0.8;
+}
+
+.input-group {
+    margin-bottom: 20px;
+}
+
+.input-group input,
+.level-select {
+    width: 100%;
+    padding: 15px;
+    border: none;
+    border-radius: 10px;
+    background: rgba(255, 255, 255, 0.2);
+    color: white;
+    font-size: 1rem;
+    outline: none;
+}
+
+.input-group input::placeholder,
+.level-select {
+    color: rgba(255, 255, 255, 0.7);
+}
+
+.level-select option {
+    background: #764ba2;
+    color: white;
+}
+
+.checkbox-group {
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px;
+    text-align: right;
+}
+
+.checkbox-group input {
+    margin-left: 10px;
+}
+
+.checkbox-group label {
+    font-size: 0.9rem;
+    opacity: 0.8;
+}
+
+.login-btn {
+    width: 100%;
+    padding: 15px;
+    border: none;
+    border-radius: 10px;
+    background: linear-gradient(45deg, #ff7e5f, #feb47b);
+    color: white;
+    font-size: 1.1rem;
+    cursor: pointer;
+    transition: transform 0.3s ease;
+    margin-bottom: 15px;
+}
+
+.login-btn:hover {
+    transform: translateY(-2px);
+}
+
+.links {
+    margin-top: 20px;
+}
+
+.links a {
+    color: white;
+    text-decoration: none;
+    display: block;
+    margin: 10px 0;
+    opacity: 0.8;
+    transition: opacity 0.3s ease;
+}
+
+.links a:hover {
+    opacity: 1;
+}
+
+/* استایل برای حالت‌های مختلف ورودی */
+.input-group input:focus,
+.level-select:focus {
+    background: rgba(255, 255, 255, 0.3);
+    box-shadow: 0 0 10px rgba(255, 255, 255, 0.3);
+}
+
+/* استایل برای خطا */
+.input-error {
+    border: 2px solid #ff6b6b !important;
+}
+
+.error-message {
+    color: #ff6b6b;
+    font-size: 0.8rem;
+    margin-top: 5px;
+    text-align: right;
+}
+
+.success-message {
+    color: #51cf66;
+    font-size: 0.9rem;
+    margin-top: 10px;
+}
