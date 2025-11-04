@@ -183,6 +183,11 @@ textarea.form-control {
     transform: translateY(0);
 }
 
+.btn-2{
+    text-decoration: none;
+    color: white;
+}
+
 .error {
     color: var(--error-color);
     font-size: 0.875rem;
