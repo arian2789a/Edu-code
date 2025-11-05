@@ -1,4 +1,3 @@
-/* error-styles.css */
 :root {
     --primary-color: #8fa1ff;
     --secondary-color: #a78bfa;
@@ -147,7 +146,6 @@ body {
     color: #6b7280;
 }
 
-/* Specific Error Type Styles */
 .error-400 .error-code {
     background: linear-gradient(135deg, #f87171, #ef4444);
     -webkit-background-clip: text;
@@ -184,7 +182,6 @@ body {
     -webkit-text-fill-color: transparent;
 }
 
-/* Error Icon */
 .error-icon {
     font-size: 4rem;
     margin-bottom: 1rem;
@@ -198,7 +195,6 @@ body {
 .error-500 .error-icon { color: #ef4444; }
 .error-503 .error-icon { color: #f59e0b; }
 
-/* Responsive */
 @media (max-width: 768px) {
     .error-code {
         font-size: 4rem;

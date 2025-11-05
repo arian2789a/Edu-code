@@ -1,63 +1,59 @@
-// cms-script.js
 $(document).ready(function() {
-    // Initialize CMS
+
     initCMS();
-    
-    // Page Navigation
+
     $('.menu-item').on('click', function() {
         const pageId = $(this).data('page');
         navigateToPage(pageId);
     });
     
-    // Sidebar Toggle
+
     $('.sidebar-toggle').on('click', function() {
         $('.sidebar').toggleClass('active');
     });
     
-    // Theme Toggle
+
     $('.theme-toggle').on('click', function() {
         $('body').toggleClass('dark-mode');
         $(this).find('i').toggleClass('fa-moon fa-sun');
     });
-    
-    // Modal Management
+
     $('.modal-close, .btn-secondary').on('click', function() {
         closeAllModals();
     });
     
-    // Add Post Button
+
     $('#add-post-btn').on('click', function() {
         $('#post-modal').addClass('active');
     });
     
-    // Add Category Button
+
     $('#add-category-btn').on('click', function() {
         showNotification('افزودن دسته‌بندی جدید', 'info');
     });
     
-    // Add User Button
+
     $('#add-user-btn').on('click', function() {
         showNotification('افزودن کاربر جدید', 'info');
     });
     
-    // Upload Media Button
+
     $('#upload-media-btn').on('click', function() {
         showNotification('آپلود فایل جدید', 'info');
     });
     
-    // Settings Tabs
+
     $('.tab-btn').on('click', function() {
         const tabId = $(this).data('tab');
         switchSettingsTab(tabId);
     });
     
-    // Filter Tabs
+
     $('.filter-tab').on('click', function() {
         $('.filter-tab').removeClass('active');
         $(this).addClass('active');
     });
     
-    // Form Submissions
     $('.settings-form').on('submit', function(e) {
         e.preventDefault();
         showNotification('تنظیمات با موفقیت ذخیره شد', 'success');
@@ -68,9 +64,7 @@ $(document).ready(function() {
         showNotification('مقاله با موفقیت ذخیره شد', 'success');
         closeAllModals();
     });
-    
-    // Table Actions
-    $('.action-buttons .edit').on('click', function() {
+        $('.action-buttons .edit').on('click', function() {
         const itemName = $(this).closest('tr').find('td:eq(1)').text();
         showNotification(`ویرایش ${itemName}`, 'info');
     });
@@ -86,8 +80,7 @@ $(document).ready(function() {
         const itemName = $(this).closest('tr').find('td:eq(1)').text();
         showNotification(`مشاهده ${itemName}`, 'info');
     });
-    
-    // Comment Actions
+
     $('.comment-actions .btn-success').on('click', function() {
         $(this).closest('.comment-item').find('.comment-status')
             .text('تایید شده')
@@ -102,14 +95,13 @@ $(document).ready(function() {
             showNotification('نظر با موفقیت رد شد', 'success');
         }
     });
-    
-    // Select All Checkbox
+
     $('#select-all').on('change', function() {
         const isChecked = $(this).is(':checked');
         $('.data-table tbody input[type="checkbox"]').prop('checked', isChecked);
     });
     
-    // Search Functionality
+
     $('.search-box input, .search-filter input').on('input', function() {
         const searchTerm = $(this).val().toLowerCase();
         const table = $(this).closest('.filters').next('.table-container');
@@ -121,55 +113,53 @@ $(document).ready(function() {
             });
         }
     });
-    
-    // Initialize Charts
     initCharts();
     
-    // Initialize Statistics
+
     initStatistics();
 });
 
-// CMS Initialization
+
 function initCMS() {
     console.log('CMS System Initialized');
     
-    // Set active page from URL hash
+
     const hash = window.location.hash.substring(1);
     if (hash) {
         navigateToPage(hash);
     }
     
-    // Load user data
+
     loadUserData();
     
-    // Initialize tooltips
+
     initTooltips();
 }
 
-// Page Navigation
+
 function navigateToPage(pageId) {
-    // Hide all pages
+
     $('.page').removeClass('active');
     
-    // Show target page
+
     $(`#${pageId}`).addClass('active');
     
-    // Update active menu item
+
     $('.menu-item').removeClass('active');
     $(`.menu-item[data-page="${pageId}"]`).addClass('active');
     
-    // Update page title
+
     const pageTitle = $(`.menu-item[data-page="${pageId}"] span`).text();
     $('#page-title').text(pageTitle);
     
-    // Update URL hash
+
     window.location.hash = pageId;
     
-    // Log page view
+
     console.log(`Navigated to: ${pageTitle}`);
 }
 
-// Modal Management
+
 function closeAllModals() {
     $('.modal').removeClass('active');
 }
@@ -179,7 +169,7 @@ function openModal(modalId) {
     $(`#${modalId}`).addClass('active');
 }
 
-// Settings Tabs
+
 function switchSettingsTab(tabId) {
     $('.tab-btn').removeClass('active');
     $(`.tab-btn[data-tab="${tabId}"]`).addClass('active');
@@ -188,7 +178,7 @@ function switchSettingsTab(tabId) {
     $(`#${tabId}`).addClass('active');
 }
 
-// Notification System
+
 function showNotification(message, type = 'info') {
     const notification = $(`
         <div class="notification ${type}">
@@ -203,18 +193,12 @@ function showNotification(message, type = 'info') {
     `);
     
     $('body').append(notification);
-    
-    // Add show class after a delay for animation
     setTimeout(() => {
         notification.addClass('show');
     }, 100);
-    
-    // Auto remove after 5 seconds
     setTimeout(() => {
         hideNotification(notification);
     }, 5000);
-    
-    // Close button
     notification.find('.notification-close').on('click', function() {
         hideNotification(notification);
     });
@@ -237,11 +221,9 @@ function getNotificationIcon(type) {
     return icons[type] || 'info-circle';
 }
 
-// Chart Initialization
 function initCharts() {
     const ctx = document.getElementById('trafficChart');
     if (ctx) {
-        // Simple chart implementation (in real project, use Chart.js)
         ctx.innerHTML = `
             <div style="text-align: center; padding: 2rem; color: #6b7280;">
                 <i class="fas fa-chart-bar" style="font-size: 3rem; margin-bottom: 1rem;"></i>
@@ -252,9 +234,8 @@ function initCharts() {
     }
 }
 
-// Statistics
+
 function initStatistics() {
-    // Animate statistics counters
     $('.stat-info h3').each(function() {
         const $this = $(this);
         const target = parseInt($this.text().replace(/,/g, ''));
@@ -273,15 +254,14 @@ function initStatistics() {
     });
 }
 
-// User Data Management
+
 function loadUserData() {
-    // Simulate loading user data
     setTimeout(() => {
         console.log('User data loaded successfully');
     }, 1000);
 }
 
-// Tooltips
+
 function initTooltips() {
     $('[title]').each(function() {
         const title = $(this).attr('title');
@@ -305,7 +285,7 @@ function initTooltips() {
     });
 }
 
-// Data Export
+
 function exportData(type) {
     showNotification(`در حال آماده‌سازی ${type} برای دانلود...`, 'info');
     
@@ -314,7 +294,6 @@ function exportData(type) {
     }, 2000);
 }
 
-// Bulk Actions
 function bulkAction(action) {
     const selectedItems = $('.data-table tbody input[type="checkbox"]:checked').length;
     
@@ -331,14 +310,13 @@ function bulkAction(action) {
     
     if (confirm(`آیا از ${actions[action]} ${selectedItems} آیتم انتخاب شده اطمینان دارید؟`)) {
         showNotification(`${selectedItems} آیتم با موفقیت ${actions[action]} شد`, 'success');
-        
-        // Uncheck all checkboxes
+
         $('.data-table tbody input[type="checkbox"]').prop('checked', false);
         $('#select-all').prop('checked', false);
     }
 }
 
-// Search and Filter
+
 function applyFilters() {
     const category = $('#category-filter').val();
     const status = $('#status-filter').val();
@@ -358,37 +336,32 @@ function applyFilters() {
     });
 }
 
-// Event Listeners for Filters
+
 $('#category-filter, #status-filter').on('change', applyFilters);
 $('.search-filter input').on('input', applyFilters);
 
-// Keyboard Shortcuts
+
 $(document).on('keydown', function(e) {
-    // Ctrl + / for search focus
+
     if (e.ctrlKey && e.key === '/') {
         e.preventDefault();
         $('.search-box input').focus();
     }
-    
-    // Escape to close modals
     if (e.key === 'Escape') {
         closeAllModals();
     }
 });
 
-// Responsive Helpers
 function checkMobile() {
     return window.innerWidth <= 768;
 }
 
-// Initialize on window resize
 $(window).on('resize', function() {
     if (checkMobile()) {
         $('.sidebar').removeClass('active');
     }
 });
 
-// Add CSS for notifications and tooltips
 $('head').append(`
     <style>
         .notification {

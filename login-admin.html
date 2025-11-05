@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="assests/fonts/Vazirmatn/Vazirmatn-Variable-font-face.css">
+    <link rel="stylesheet" href="assests/fonts/Vazirmatn/Vazirmatn-font-face.css">
+    <title>ورود ادمین - Edu Code</title>
+    <link rel="stylesheet" href="assests/css/login-admin.css">
+</head>
+<body>
+    <div class="admin-login-container">
+        <div class="login-background">
+            <div class="background-shapes">
+                <div class="shape shape-1"></div>
+                <div class="shape shape-2"></div>
+                <div class="shape shape-3"></div>
+                <div class="shape shape-4"></div>
+            </div>
+        </div>
+
+        <div class="login-card">
+            <div class="login-header">
+                <div class="logo">
+                    <h1>Edu Code</h1>
+                    <span>پنل مدیریت</span>
+                </div>
+            </div>
+
+            <form id="adminLoginForm" class="login-form">
+                <div class="form-group">
+                    <label for="username">نام کاربری</label>
+                    <div class="input-group">
+                        <span class="input-icon">👤</span>
+                        <input type="text" id="username" name="username" placeholder="نام کاربری خود را وارد کنید" required>
+                    </div>
+                    <div class="error-message" id="usernameError"></div>
+                </div>
+
+                <div class="form-group">
+                    <label for="password">رمز عبور</label>
+                    <div class="input-group">
+                        <span class="input-icon">🔒</span>
+                        <input type="password" id="password" name="password" placeholder="رمز عبور خود را وارد کنید" required>
+                        <button type="button" class="password-toggle" id="passwordToggle">👁️</button>
+                    </div>
+                    <div class="error-message" id="passwordError"></div>
+                </div>
+
+                <div class="form-options">
+                    <label class="checkbox-container">
+                        <input type="checkbox" id="rememberMe" name="rememberMe">
+                        <span class="checkmark"></span>
+                        مرا به خاطر بسپار
+                    </label>
+                    <a href="#" class="forgot-password">رمز عبور را فراموش کرده‌اید؟</a>
+                </div>
+
+                <button type="submit" class="login-btn" id="loginBtn">
+                    <span class="btn-text">ورود به پنل مدیریت</span>
+                    <span class="btn-loading" style="display: none;">
+                        <span class="loading-spinner"></span>
+                        در حال ورود...
+                    </span>
+                </button>
+
+                <div class="security-notice">
+                    <div class="security-icon">🛡️</div>
+                    <p>این بخش تنها برای دسترسی مدیران سیستم می‌باشد</p>
+                </div>
+            </form>
+
+            <div class="login-footer">
+                <a href="index.html" class="back-to-site">← بازگشت به سایت اصلی</a>
+                <div class="version">نسخه ۱.۰.۰</div>
+            </div>
+        </div>
+        <div id="forgotPasswordModal" class="modal">
+            <div class="modal-content">
+                <span class="close-modal">&times;</span>
+                <h3>بازیابی رمز عبور</h3>
+                <form id="forgotPasswordForm">
+                    <div class="form-group">
+                        <label for="recoveryEmail">ایمیل مدیریت</label>
+                        <input type="email" id="recoveryEmail" placeholder="admin@edu-code.ir" required>
+                    </div>
+                    <button type="submit" class="recovery-btn">ارسال لینک بازیابی</button>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <script src="assests/vendor/jquery-3.7.1/jquery.min.js"></script>
+    <script src="assests/js/login-admin.js"></script>
+</body>
+</html>

@@ -1,6 +1,6 @@
-// services.js
+// services
 $(document).ready(function() {
-    // اطلاعات جزئیات خدمات
+
     const serviceDetails = {
         web: {
             title: "توسعه وب اپلیکیشن",
@@ -100,13 +100,11 @@ $(document).ready(function() {
         }
     };
 
-    // مدیریت کلیک روی دکمه‌های خدمات
     $('.service-btn').on('click', function() {
         const serviceType = $(this).data('service');
         showServiceModal(serviceType);
     });
 
-    // نمایش مودال خدمات
     function showServiceModal(serviceType) {
         const service = serviceDetails[serviceType];
         
@@ -170,23 +168,19 @@ $(document).ready(function() {
         $('#modalContent').html(modalContent);
         $('#serviceModal').fadeIn();
         
-        // جلوگیری از اسکرول body هنگام نمایش مودال
         $('body').css('overflow', 'hidden');
     }
 
-    // بستن مودال
     $('.close-modal').on('click', function() {
         closeModal();
     });
 
-    // بستن مودال با کلیک خارج از آن
     $(window).on('click', function(e) {
         if ($(e.target).is('#serviceModal')) {
             closeModal();
         }
     });
 
-    // بستن مودال با کلید ESC
     $(document).on('keydown', function(e) {
         if (e.key === 'Escape') {
             closeModal();
@@ -198,7 +192,6 @@ $(document).ready(function() {
         $('body').css('overflow', 'auto');
     }
 
-    // انیمیشن کارت‌های خدمات هنگام اسکرول
     function animateServices() {
         $('.service-card').each(function() {
             const cardPosition = $(this).offset().top;
@@ -210,15 +203,12 @@ $(document).ready(function() {
         });
     }
 
-    // مدیریت اسکرول
     $(window).on('scroll', function() {
         animateServices();
     });
 
-    // فعال کردن انیمیشن‌ها در ابتدا
     $(window).trigger('scroll');
 
-    // اضافه کردن استایل برای مودال
     $('<style>')
         .text(`
             .modal-header {
@@ -377,7 +367,6 @@ $(document).ready(function() {
         .appendTo('head');
 });
 
-// توابع全局 برای دکمه‌های مودال
 function requestConsultation(serviceType) {
     alert(`درخواست مشاوره برای سرویس ${serviceDetails[serviceType].title} ثبت شد!\nمشاوران ما به زودی با شما تماس خواهند گرفت.`);
     $('#serviceModal').fadeOut();

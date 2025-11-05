@@ -1,10 +1,8 @@
-/* consultation-style.css */
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
-
 body {
     font-family: 'Vazirmatn', Vazirmatn !important;
     background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
@@ -36,7 +34,6 @@ a[target="_blank"]:hover::after {
 .links a[target="_blank"]::after {
     right: -15px;
 }
-
 .consultation-header {
     background: rgba(255, 255, 255, 0.95);
     backdrop-filter: blur(10px);
@@ -46,7 +43,6 @@ a[target="_blank"]:hover::after {
     top: 0;
     z-index: 1000;
 }
-
 .nav-container {
     max-width: 1200px;
     margin: 0 auto;
@@ -55,7 +51,6 @@ a[target="_blank"]:hover::after {
     justify-content: space-between;
     align-items: center;
 }
-
 .logo h1 {
     background: linear-gradient(135deg, #667eea, #764ba2);
     -webkit-background-clip: text;
@@ -63,12 +58,10 @@ a[target="_blank"]:hover::after {
     font-size: 1.8rem;
     font-weight: 700;
 }
-
 .nav-links {
     display: flex;
     gap: 2rem;
 }
-
 .nav-links a {
     color: #764ba2;
     text-decoration: none;
@@ -77,26 +70,22 @@ a[target="_blank"]:hover::after {
     padding: 0.5rem 1rem;
     border-radius: 25px;
 }
-
 .nav-links a:hover,
 .nav-links a.active {
     background: linear-gradient(135deg, #667eea, #764ba2);
     color: white;
 }
-
 .consultation-container {
     max-width: 1200px;
     margin: 2rem auto;
     padding: 0 1.5rem;
 }
-
 .consultation-hero {
     text-align: center;
     color: white;
     margin-bottom: 3rem;
     padding: 3rem 1rem;
 }
-
 .consultation-hero h2 {
     font-size: 2.5rem;
     margin-bottom: 1rem;
@@ -105,7 +94,6 @@ a[target="_blank"]:hover::after {
     -webkit-text-fill-color: transparent;
     font-weight: 700;
 }
-
 .consultation-hero p {
     font-size: 1.2rem;
     opacity: 0.9;
@@ -113,14 +101,12 @@ a[target="_blank"]:hover::after {
     margin: 0 auto;
     line-height: 1.8;
 }
-
 .consultation-content {
     display: grid;
     grid-template-columns: 1fr 1fr;
     gap: 2rem;
     margin-top: 2rem;
 }
-
 .consultation-form-container {
     background: rgba(255, 255, 255, 0.95);
     backdrop-filter: blur(10px);
@@ -129,7 +115,6 @@ a[target="_blank"]:hover::after {
     box-shadow: 0 10px 40px rgba(102, 126, 234, 0.2);
     border: 1px solid rgba(102, 126, 234, 0.1);
 }
-
 .consultation-info {
     background: rgba(255, 255, 255, 0.95);
     backdrop-filter: blur(10px);
@@ -138,11 +123,9 @@ a[target="_blank"]:hover::after {
     box-shadow: 0 10px 40px rgba(102, 126, 234, 0.2);
     border: 1px solid rgba(102, 126, 234, 0.1);
 }
-
 .form-group {
     margin-bottom: 1.5rem;
 }
-
 .form-group label {
     display: block;
     color: #764ba2;
@@ -150,7 +133,6 @@ a[target="_blank"]:hover::after {
     font-weight: 600;
     font-size: 0.95rem;
 }
-
 .form-group input,
 .form-group select,
 .form-group textarea {
@@ -164,7 +146,6 @@ a[target="_blank"]:hover::after {
     outline: none;
     transition: all 0.3s ease;
 }
-
 .form-group input:focus,
 .form-group select:focus,
 .form-group textarea:focus {
@@ -172,20 +153,17 @@ a[target="_blank"]:hover::after {
     box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
     transform: translateY(-2px);
 }
-
 .form-group textarea {
     height: 120px;
     resize: vertical;
     font-family: inherit;
 }
-
 .skills-checkbox {
     display: grid;
     grid-template-columns: 1fr 1fr;
     gap: 1rem;
     margin-top: 0.5rem;
 }
-
 .skill-item {
     display: flex;
     align-items: center;
@@ -194,25 +172,21 @@ a[target="_blank"]:hover::after {
     border-radius: 10px;
     transition: all 0.3s ease;
 }
-
 .skill-item:hover {
     background: #eef2ff;
     transform: translateY(-2px);
 }
-
 .skill-item input {
     width: auto;
     margin-left: 0.75rem;
     transform: scale(1.2);
 }
-
 .skill-item label {
     margin-bottom: 0;
     cursor: pointer;
     color: #5a67d8;
     font-weight: 500;
 }
-
 .consultation-btn {
     width: 100%;
     padding: 1rem 2rem;
@@ -226,18 +200,15 @@ a[target="_blank"]:hover::after {
     transition: all 0.3s ease;
     margin-top: 1rem;
 }
-
 .consultation-btn:hover {
     transform: translateY(-3px);
     box-shadow: 0 10px 25px rgba(102, 126, 234, 0.4);
 }
-
 .consultation-btn:disabled {
     opacity: 0.6;
     cursor: not-allowed;
     transform: none;
 }
-
 .info-item {
     margin-bottom: 2rem;
     padding: 1.5rem;
@@ -245,7 +216,6 @@ a[target="_blank"]:hover::after {
     border-radius: 15px;
     border-right: 4px solid #667eea;
 }
-
 .info-item h3 {
     color: #764ba2;
     margin-bottom: 1rem;
@@ -254,19 +224,16 @@ a[target="_blank"]:hover::after {
     align-items: center;
     gap: 0.5rem;
 }
-
 .info-item p {
     color: #4a5568;
     line-height: 1.7;
 }
-
 .tech-stack {
     display: flex;
     flex-wrap: wrap;
     gap: 0.5rem;
     margin-top: 0.5rem;
 }
-
 .tech-item {
     background: linear-gradient(135deg, #667eea, #764ba2);
     color: white;
@@ -279,7 +246,6 @@ a[target="_blank"]:hover::after {
     border-color: #e53e3e !important;
     animation: shake 0.5s ease-in-out;
 }
-
 .error-message {
     color: #e53e3e;
     font-size: 0.85rem;
@@ -290,7 +256,6 @@ a[target="_blank"]:hover::after {
     border-radius: 8px;
     border-right: 3px solid #e53e3e;
 }
-
 .success-message {
     color: #38a169;
     font-size: 1rem;
@@ -301,7 +266,6 @@ a[target="_blank"]:hover::after {
     text-align: center;
     border-right: 4px solid #38a169;
 }
-
 .loading {
     color: #667eea;
     font-weight: 600;
@@ -329,7 +293,6 @@ a[target="_blank"]:hover::after {
     backdrop-filter: blur(5px);
     padding: 1.5rem;
 }
-
 .modal-content {
     background: white;
     padding: 2.5rem;
@@ -341,7 +304,6 @@ a[target="_blank"]:hover::after {
     box-shadow: 0 20px 60px rgba(102, 126, 234, 0.3);
     border: 2px solid #e2e8ff;
 }
-
 .modal-content h3 {
     font-size: 1.5rem;
     margin-bottom: 1.5rem;
@@ -350,14 +312,12 @@ a[target="_blank"]:hover::after {
     -webkit-text-fill-color: transparent;
     font-weight: 700;
 }
-
 .modal-buttons {
     display: flex;
     gap: 1rem;
     justify-content: center;
     margin-top: 2rem;
 }
-
 .modal-btn {
     padding: 0.75rem 2rem;
     border: none;
@@ -367,17 +327,14 @@ a[target="_blank"]:hover::after {
     font-size: 1rem;
     font-weight: 600;
 }
-
 .confirm-btn {
     background: linear-gradient(135deg, #667eea, #764ba2);
     color: white;
 }
-
 .cancel-btn {
     background: #e2e8ff;
     color: #667eea;
 }
-
 .modal-btn:hover {
     transform: translateY(-2px);
     box-shadow: 0 5px 15px rgba(102, 126, 234, 0.3);
@@ -387,29 +344,23 @@ a[target="_blank"]:hover::after {
         grid-template-columns: 1fr;
         gap: 1.5rem;
     }
-    
     .consultation-hero h2 {
         font-size: 2rem;
     }
-    
     .nav-container {
         flex-direction: column;
         gap: 1rem;
     }
-    
     .nav-links {
         gap: 1rem;
     }
-    
     .skills-checkbox {
         grid-template-columns: 1fr;
     }
-    
     .consultation-form-container,
     .consultation-info {
         padding: 2rem;
     }
-    
     .modal-content {
         padding: 2rem;
     }
@@ -419,48 +370,38 @@ a[target="_blank"]:hover::after {
         margin: 1rem auto;
         padding: 0 1rem;
     }
-    
     .consultation-hero {
         padding: 2rem 1rem;
         margin-bottom: 2rem;
     }
-    
     .consultation-hero h2 {
         font-size: 1.8rem;
     }
-    
     .consultation-hero p {
         font-size: 1rem;
     }
-    
     .consultation-form-container,
     .consultation-info {
         padding: 1.5rem;
     }
-    
     .form-group input,
     .form-group select,
     .form-group textarea {
         padding: 0.875rem;
     }
-    
     .consultation-btn {
         padding: 0.875rem 1.5rem;
         font-size: 1rem;
     }
-    
     .info-item {
         padding: 1.25rem;
     }
-    
     .modal-content {
         padding: 1.5rem;
     }
-    
     .modal-buttons {
         flex-direction: column;
     }
-    
     .modal-btn {
         width: 100%;
     }
@@ -469,11 +410,9 @@ a[target="_blank"]:hover::after {
     .consultation-btn:hover {
         transform: none;
     }
-    
     .skill-item:hover {
         transform: none;
     }
-    
     .modal-btn:hover {
         transform: none;
     }
@@ -493,7 +432,6 @@ a[target="_blank"]:hover::after {
 .consultation-info {
     animation: fadeInUp 0.6s ease-out;
 }
-
 .consultation-info {
     animation-delay: 0.2s;
 }
