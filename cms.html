@@ -1,0 +1,566 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CMS - سیستم مدیریت محتوا</title>
+    <link rel="stylesheet" href="assests/fonts/Vazirmatn/Vazirmatn-Variable-font-face.css">
+    <link rel="stylesheet" href="assests/fonts/Vazirmatn/Vazirmatn-font-face.css">
+    <link rel="stylesheet" href="assests/vendor/bootstrap-icons-1.11.3/font/bootstrap-icons.min.css">
+    <link rel="stylesheet" href="assests/css/cms.css">
+</head>
+<body>
+    <nav class="sidebar">
+        <div class="sidebar-header">
+            <h2><i class="fas fa-code"></i> EduCode CMS</h2>
+        </div>
+        <ul class="sidebar-menu">
+            <li class="menu-item active" data-page="dashboard">
+                <i class="fas fa-tachometer-alt"></i>
+                <span>داشبورد</span>
+            </li>
+            <li class="menu-item" data-page="posts">
+                <i class="fas fa-newspaper"></i>
+                <span>مقالات</span>
+            </li>
+            <li class="menu-item" data-page="categories">
+                <i class="fas fa-folder"></i>
+                <span>دسته‌بندی‌ها</span>
+            </li>
+            <li class="menu-item" data-page="media">
+                <i class="fas fa-images"></i>
+                <span>مدیا</span>
+            </li>
+            <li class="menu-item" data-page="users">
+                <i class="fas fa-users"></i>
+                <span>کاربران</span>
+            </li>
+            <li class="menu-item" data-page="comments">
+                <i class="fas fa-comments"></i>
+                <span>نظرات</span>
+            </li>
+            <li class="menu-item" data-page="settings">
+                <i class="fas fa-cog"></i>
+                <span>تنظیمات</span>
+            </li>
+        </ul>
+        <div class="sidebar-footer">
+            <div class="user-info">
+                <img src="https://ui-avatars.com/api/?name=مدیر+سیستم&background=667eea&color=fff" alt="User">
+                <div class="user-details">
+                    <span class="user-name">مدیر سیستم</span>
+                    <span class="user-role">مدیر کل</span>
+                </div>
+            </div>
+            <button class="logout-btn">
+                <i class="fas fa-sign-out-alt"></i>
+                خروج
+            </button>
+        </div>
+    </nav>
+    <main class="main-content">
+        <header class="top-header">
+            <div class="header-left">
+                <button class="sidebar-toggle">
+                    <i class="fas fa-bars"></i>
+                </button>
+                <h1 id="page-title">داشبورد</h1>
+            </div>
+            <div class="header-right">
+                <div class="search-box">
+                    <input type="text" placeholder="جستجو...">
+                    <i class="fas fa-search"></i>
+                </div>
+                <div class="header-actions">
+                    <button class="notification-btn">
+                        <i class="fas fa-bell"></i>
+                        <span class="notification-count">3</span>
+                    </button>
+                    <button class="theme-toggle">
+                        <i class="fas fa-moon"></i>
+                    </button>
+                </div>
+            </div>
+        </header>
+        <div class="page-content">
+            <div id="dashboard" class="page active">
+                <div class="stats-grid">
+                    <div class="stat-card">
+                        <div class="stat-icon">
+                            <i class="fas fa-newspaper"></i>
+                        </div>
+                        <div class="stat-info">
+                            <h3>۱۵۲</h3>
+                            <p>مقالات منتشر شده</p>
+                        </div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-icon">
+                            <i class="fas fa-users"></i>
+                        </div>
+                        <div class="stat-info">
+                            <h3>۲,۸۴۵</h3>
+                            <p>کاربران ثبت‌نام شده</p>
+                        </div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-icon">
+                            <i class="fas fa-comments"></i>
+                        </div>
+                        <div class="stat-info">
+                            <h3>۳۴۷</h3>
+                            <p>نظرات جدید</p>
+                        </div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-icon">
+                            <i class="fas fa-eye"></i>
+                        </div>
+                        <div class="stat-info">
+                            <h3>۱۲,۵۸۴</h3>
+                            <p>بازدید امروز</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="content-grid">
+                    <div class="chart-section">
+                        <div class="section-header">
+                            <h3>آمار بازدید هفتگی</h3>
+                        </div>
+                        <div class="chart-container">
+                            <canvas id="trafficChart"></canvas>
+                        </div>
+                    </div>
+                    
+                    <div class="recent-section">
+                        <div class="section-header">
+                            <h3>آخرین مقالات</h3>
+                            <a href="#" class="view-all">مشاهده همه</a>
+                        </div>
+                        <div class="recent-list">
+                            <div class="recent-item">
+                                <div class="item-info">
+                                    <h4>آموزش جامع React.js</h4>
+                                    <span class="item-date">۲ ساعت پیش</span>
+                                </div>
+                                <span class="item-status published">منتشر شده</span>
+                            </div>
+                            <div class="recent-item">
+                                <div class="item-info">
+                                    <h4>بررسی فریمورک Vue 3</h4>
+                                    <span class="item-date">۵ ساعت پیش</span>
+                                </div>
+                                <span class="item-status draft">پیش‌نویس</span>
+                            </div>
+                            <div class="recent-item">
+                                <div class="item-info">
+                                    <h4>بهینه‌سازی عملکرد وب</h4>
+                                    <span class="item-date">۱ روز پیش</span>
+                                </div>
+                                <span class="item-status published">منتشر شده</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div id="posts" class="page">
+                <div class="page-header">
+                    <h2>مدیریت مقالات</h2>
+                    <button class="btn btn-primary" id="add-post-btn">
+                        <i class="fas fa-plus"></i>
+                        مقاله جدید
+                    </button>
+                </div>
+                <div class="filters">
+                    <div class="filter-group">
+                        <select id="category-filter">
+                            <option value="">همه دسته‌بندی‌ها</option>
+                            <option value="1">برنامه‌نویسی وب</option>
+                            <option value="2">هوش مصنوعی</option>
+                            <option value="3">موبایل</option>
+                        </select>
+                        <select id="status-filter">
+                            <option value="">همه وضعیت‌ها</option>
+                            <option value="published">منتشر شده</option>
+                            <option value="draft">پیش‌نویس</option>
+                        </select>
+                    </div>
+                    <div class="search-filter">
+                        <input type="text" placeholder="جستجو در مقالات...">
+                        <i class="fas fa-search"></i>
+                    </div>
+                </div>
+
+                <div class="table-container">
+                    <table class="data-table">
+                        <thead>
+                            <tr>
+                                <th><input type="checkbox" id="select-all"></th>
+                                <th>عنوان مقاله</th>
+                                <th>دسته‌بندی</th>
+                                <th>نویسنده</th>
+                                <th>تاریخ</th>
+                                <th>وضعیت</th>
+                                <th>عملیات</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><input type="checkbox"></td>
+                                <td>آموزش جامع JavaScript ES6</td>
+                                <td>برنامه‌نویسی وب</td>
+                                <td>محمد رضایی</td>
+                                <td>۱۴۰۲/۱۰/۱۵</td>
+                                <td><span class="status published">منتشر شده</span></td>
+                                <td>
+                                    <div class="action-buttons">
+                                        <button class="btn-icon edit" title="ویرایش">
+                                            <i class="fas fa-edit"></i>
+                                        </button>
+                                        <button class="btn-icon delete" title="حذف">
+                                            <i class="fas fa-trash"></i>
+                                        </button>
+                                        <button class="btn-icon view" title="مشاهده">
+                                            <i class="fas fa-eye"></i>
+                                        </button>
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td><input type="checkbox"></td>
+                                <td>بررسی فریمورک React Native</td>
+                                <td>موبایل</td>
+                                <td>فاطمه محمدی</td>
+                                <td>۱۴۰۲/۱۰/۱۴</td>
+                                <td><span class="status draft">پیش‌نویس</span></td>
+                                <td>
+                                    <div class="action-buttons">
+                                        <button class="btn-icon edit" title="ویرایش">
+                                            <i class="fas fa-edit"></i>
+                                        </button>
+                                        <button class="btn-icon delete" title="حذف">
+                                            <i class="fas fa-trash"></i>
+                                        </button>
+                                        <button class="btn-icon view" title="مشاهده">
+                                            <i class="fas fa-eye"></i>
+                                        </button>
+                                    </div>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <div class="pagination">
+                    <button class="page-btn disabled"><i class="fas fa-chevron-right"></i></button>
+                    <button class="page-btn active">۱</button>
+                    <button class="page-btn">۲</button>
+                    <button class="page-btn">۳</button>
+                    <button class="page-btn"><i class="fas fa-chevron-left"></i></button>
+                </div>
+            </div>
+            <div id="categories" class="page">
+                <div class="page-header">
+                    <h2>مدیریت دسته‌بندی‌ها</h2>
+                    <button class="btn btn-primary" id="add-category-btn">
+                        <i class="fas fa-plus"></i>
+                        دسته‌بندی جدید
+                    </button>
+                </div>
+
+                <div class="categories-grid">
+                    <div class="category-card">
+                        <div class="category-header">
+                            <h3>برنامه‌نویسی وب</h3>
+                            <span class="post-count">۴۵ مقاله</span>
+                        </div>
+                        <p>مقالات مربوط به توسعه وب و فریمورک‌های front-end و back-end</p>
+                        <div class="category-actions">
+                            <button class="btn-icon edit"><i class="fas fa-edit"></i></button>
+                            <button class="btn-icon delete"><i class="fas fa-trash"></i></button>
+                        </div>
+                    </div>
+                    
+                    <div class="category-card">
+                        <div class="category-header">
+                            <h3>هوش مصنوعی</h3>
+                            <span class="post-count">۲۳ مقاله</span>
+                        </div>
+                        <p>مطالب آموزشی در زمینه Machine Learning و Deep Learning</p>
+                        <div class="category-actions">
+                            <button class="btn-icon edit"><i class="fas fa-edit"></i></button>
+                            <button class="btn-icon delete"><i class="fas fa-trash"></i></button>
+                        </div>
+                    </div>
+                    
+                    <div class="category-card">
+                        <div class="category-header">
+                            <h3>توسعه موبایل</h3>
+                            <span class="post-count">۱۸ مقاله</span>
+                        </div>
+                        <p>آموزش توسعه اپلیکیشن‌های موبایل برای Android و iOS</p>
+                        <div class="category-actions">
+                            <button class="btn-icon edit"><i class="fas fa-edit"></i></button>
+                            <button class="btn-icon delete"><i class="fas fa-trash"></i></button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div id="media" class="page">
+                <div class="page-header">
+                    <h2>کتابخانه مدیا</h2>
+                    <button class="btn btn-primary" id="upload-media-btn">
+                        <i class="fas fa-upload"></i>
+                        آپلود فایل
+                    </button>
+                </div>
+
+                <div class="media-filters">
+                    <div class="filter-tabs">
+                        <button class="filter-tab active">همه فایل‌ها</button>
+                        <button class="filter-tab">تصاویر</button>
+                        <button class="filter-tab">اسناد</button>
+                        <button class="filter-tab">ویدئو</button>
+                    </div>
+                </div>
+                <div class="media-grid">
+                    <div class="media-item">
+                        <div class="media-preview">
+                            <img src="https://via.placeholder.com/300x200/667eea/ffffff?text=Image" alt="Media">
+                        </div>
+                        <div class="media-info">
+                            <h4>header-image.jpg</h4>
+                            <span class="media-size">۲.۴ MB</span>
+                            <span class="media-date">۱۴۰۲/۱۰/۱۵</span>
+                        </div>
+                        <div class="media-actions">
+                            <button class="btn-icon"><i class="fas fa-download"></i></button>
+                            <button class="btn-icon delete"><i class="fas fa-trash"></i></button>
+                        </div>
+                    </div>
+                    <div class="media-item">
+                        <div class="media-preview">
+                            <i class="fas fa-file-pdf"></i>
+                        </div>
+                        <div class="media-info">
+                            <h4>document.pdf</h4>
+                            <span class="media-size">۱.۸ MB</span>
+                            <span class="media-date">۱۴۰۲/۱۰/۱۴</span>
+                        </div>
+                        <div class="media-actions">
+                            <button class="btn-icon"><i class="fas fa-download"></i></button>
+                            <button class="btn-icon delete"><i class="fas fa-trash"></i></button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div id="users" class="page">
+                <div class="page-header">
+                    <h2>مدیریت کاربران</h2>
+                    <button class="btn btn-primary" id="add-user-btn">
+                        <i class="fas fa-plus"></i>
+                        کاربر جدید
+                    </button>
+                </div>
+
+                <div class="table-container">
+                    <table class="data-table">
+                        <thead>
+                            <tr>
+                                <th>کاربر</th>
+                                <th>ایمیل</th>
+                                <th>نقش</th>
+                                <th>تاریخ عضویت</th>
+                                <th>وضعیت</th>
+                                <th>عملیات</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>
+                                    <div class="user-cell">
+                                        <img src="https://ui-avatars.com/api/?name=محمد+رضایی&background=667eea&color=fff" alt="User">
+                                        <span>محمد رضایی</span>
+                                    </div>
+                                </td>
+                                <td>mohammad@example.com</td>
+                                <td><span class="role admin">مدیر</span></td>
+                                <td>۱۴۰۲/۰۹/۰۱</td>
+                                <td><span class="status active">فعال</span></td>
+                                <td>
+                                    <div class="action-buttons">
+                                        <button class="btn-icon edit"><i class="fas fa-edit"></i></button>
+                                        <button class="btn-icon delete"><i class="fas fa-trash"></i></button>
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <div class="user-cell">
+                                        <img src="https://ui-avatars.com/api/?name=فاطمه+محمدی&background=764ba2&color=fff" alt="User">
+                                        <span>فاطمه محمدی</span>
+                                    </div>
+                                </td>
+                                <td>fatemeh@example.com</td>
+                                <td><span class="role editor">نویسنده</span></td>
+                                <td>۱۴۰۲/۱۰/۱۵</td>
+                                <td><span class="status active">فعال</span></td>
+                                <td>
+                                    <div class="action-buttons">
+                                        <button class="btn-icon edit"><i class="fas fa-edit"></i></button>
+                                        <button class="btn-icon delete"><i class="fas fa-trash"></i></button>
+                                    </div>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            <div id="comments" class="page">
+                <div class="page-header">
+                    <h2>مدیریت نظرات</h2>
+                </div>
+
+                <div class="comments-list">
+                    <div class="comment-item pending">
+                        <div class="comment-header">
+                            <div class="comment-author">
+                                <img src="https://ui-avatars.com/api/?name=علی+احمدی&background=667eea&color=fff" alt="User">
+                                <div>
+                                    <h4>علی احمدی</h4>
+                                    <span class="comment-date">۲ ساعت پیش</span>
+                                </div>
+                            </div>
+                            <span class="comment-status pending">در انتظار تایید</span>
+                        </div>
+                        <div class="comment-content">
+                            <p>مقاله بسیار عالی و کاربردی بود. ممنون از زحمات شما</p>
+                            <a href="#" class="post-link">آموزش جامع React.js</a>
+                        </div>
+                        <div class="comment-actions">
+                            <button class="btn btn-success btn-sm">تایید</button>
+                            <button class="btn btn-danger btn-sm">رد</button>
+                            <button class="btn btn-secondary btn-sm">ویرایش</button>
+                        </div>
+                    </div>
+
+                    <div class="comment-item approved">
+                        <div class="comment-header">
+                            <div class="comment-author">
+                                <img src="https://ui-avatars.com/api/?name=زهرا+کریمی&background=764ba2&color=fff" alt="User">
+                                <div>
+                                    <h4>زهرا کریمی</h4>
+                                    <span class="comment-date">۱ روز پیش</span>
+                                </div>
+                            </div>
+                            <span class="comment-status approved">تایید شده</span>
+                        </div>
+                        <div class="comment-content">
+                            <p>لطفاً در مورد Vue.js هم مقاله بگذارید</p>
+                            <a href="#" class="post-link">بررسی فریمورک‌های Front-end</a>
+                        </div>
+                        <div class="comment-actions">
+                            <button class="btn btn-danger btn-sm">حذف</button>
+                            <button class="btn btn-secondary btn-sm">ویرایش</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div id="settings" class="page">
+                <div class="page-header">
+                    <h2>تنظیمات سیستم</h2>
+                </div>
+
+                <div class="settings-tabs">
+                    <div class="tab-buttons">
+                        <button class="tab-btn active" data-tab="general">عمومی</button>
+                        <button class="tab-btn" data-tab="seo">سئو</button>
+                        <button class="tab-btn" data-tab="security">امنیت</button>
+                        <button class="tab-btn" data-tab="email">ایمیل</button>
+                    </div>
+                    <div class="tab-content">
+                        <div id="general" class="tab-pane active">
+                            <form class="settings-form">
+                                <div class="form-group">
+                                    <label>نام سایت</label>
+                                    <input type="text" value="EduCode" class="form-control">
+                                </div>
+                                <div class="form-group">
+                                    <label>توضیحات سایت</label>
+                                    <textarea class="form-control">پلتفرم آموزش برنامه‌نویسی</textarea>
+                                </div>
+                                <div class="form-group">
+                                    <label>آدرس سایت</label>
+                                    <input type="url" value="https://educode.ir" class="form-control">
+                                </div>
+                                <button type="submit" class="btn btn-primary">ذخیره تغییرات</button>
+                            </form>
+                        </div>
+                        <div id="seo" class="tab-pane">
+                            <form class="settings-form">
+                                <div class="form-group">
+                                    <label>متا تگ عنوان</label>
+                                    <input type="text" value="EduCode - آموزش برنامه‌نویسی" class="form-control">
+                                </div>
+                                <div class="form-group">
+                                    <label>متا تگ توضیحات</label>
+                                    <textarea class="form-control">آموزش برنامه‌نویسی به زبان ساده با پروژه‌های عملی</textarea>
+                                </div>
+                                <div class="form-group">
+                                    <label>کلمات کلیدی</label>
+                                    <input type="text" value="برنامه‌نویسی, آموزش, وب, React, JavaScript" class="form-control">
+                                </div>
+                                <button type="submit" class="btn btn-primary">ذخیره تغییرات</button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+    <div id="post-modal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3>مقاله جدید</h3>
+                <button class="modal-close">&times;</button>
+            </div>
+            <div class="modal-body">
+                <form id="post-form">
+                    <div class="form-group">
+                        <label>عنوان مقاله</label>
+                        <input type="text" class="form-control" required>
+                    </div>
+                    <div class="form-group">
+                        <label>محتوا</label>
+                        <textarea class="form-control" rows="10" required></textarea>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label>دسته‌بندی</label>
+                            <select class="form-control" required>
+                                <option value="">انتخاب کنید</option>
+                                <option value="1">برنامه‌نویسی وب</option>
+                                <option value="2">هوش مصنوعی</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label>وضعیت</label>
+                            <select class="form-control" required>
+                                <option value="published">منتشر شده</option>
+                                <option value="draft">پیش‌نویس</option>
+                            </select>
+                        </div>
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button class="btn btn-secondary">انصراف</button>
+                <button class="btn btn-primary">ذخیره مقاله</button>
+            </div>
+        </div>
+    </div>
+    <script src="assests/vendor/jquery-3.7.1/jquery.min.js"></script>
+    <script src="assests/js/cms.js"></script>
+</body>
+</html>
